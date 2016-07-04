@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="protect.cashbox">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <application
+        android:name=".CashboxApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".account.AccountListActivity"
+            android:label="@string/accounts"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".account.AccountDetailActivity"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".account.AccountListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".category.CategoryListActivity"
+            android:label="@string/categories"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".category.CategoryDetailActivity"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".category.CategoryDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".transaction.RevenueListActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".transaction.ExpenseListActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".transaction.TransactionDetailActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop"
+            android:parentActivityName=".transaction.RevenueListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".transaction.ReceiptDetailActivity"
+            android:parentActivityName=".transaction.TransactionDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SettingsActivity"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+</manifest>

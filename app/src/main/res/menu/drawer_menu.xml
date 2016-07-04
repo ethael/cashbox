@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single" android:id="@+id/drawer_menu_main">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_drawer_dashboard"
+            android:title="@string/dashboard" />
+        <item
+            android:id="@+id/nav_expenses"
+            android:icon="@drawable/ic_drawer_expenses"
+            android:title="@string/expenses" />
+        <item
+            android:id="@+id/nav_revenues"
+            android:icon="@drawable/ic_drawer_revenues"
+            android:title="@string/revenues" />
+        <item
+            android:id="@+id/nav_categories"
+            android:icon="@drawable/ic_drawer_categories"
+            android:title="@string/categories" />
+        <item
+            android:id="@+id/nav_accounts"
+            android:icon="@drawable/ic_drawer_accounts"
+            android:title="@string/accounts" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_drawer_settings"
+            android:title="@string/settings" />
+    </group>
+    <group android:checkableBehavior="none" android:id="@+id/drawer_menu_impex">
+        <item
+            android:id="@+id/nav_import"
+            android:icon="@drawable/ic_drawer_import"
+            android:title="@string/import_" />
+        <item
+            android:id="@+id/nav_export"
+            android:icon="@drawable/ic_drawer_export"
+            android:title="@string/export" />
+    </group>
+    <group android:checkableBehavior="none" android:id="@+id/drawer_menu_about">
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_drawer_about"
+            android:title="@string/about" />
+    </group>
+</menu>

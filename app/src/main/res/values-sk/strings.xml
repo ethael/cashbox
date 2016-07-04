@@ -1,0 +1,142 @@
+<resources>
+
+    <string name="app_name">Cashbox</string>
+    <string name="icon">ikona</string>
+    <string name="expenses">Výdavky</string>
+    <string name="revenues">Príjmy</string>
+    <string name="settings">Nastavenia</string>
+    <string name="import_">Import</string>
+    <string name="export">Export</string>
+    <string name="accounts">Kontá</string>
+    <string name="add_account">Nové konto</string>
+    <string name="view_account">Detail konta</string>
+    <string name="edit_account">Úprava konta</string>
+    <string name="categories">Kategórie</string>
+    <string name="add_category">Nová kategória</string>
+    <string name="view_category">Detail kategórie</string>
+    <string name="edit_category">Úprava kategórie</string>
+    <string name="transactions">Transakcie</string>
+    <string name="add_expense_transaction">Nový výdavok</string>
+    <string name="edit_expense_transaction">Úprava výdavku</string>
+    <string name="view_expense_transaction">Detail výdavku</string>
+    <string name="add_revenue_transaction">Nový príjem</string>
+    <string name="edit_revenue_transaction">Úprava príjmu</string>
+    <string name="view_revenue_transaction">Detail príjmu</string>
+    <string name="import_export">Import/Export</string>
+
+    <string name="add">Pridať</string>
+    <string name="type">Typ</string>
+    <string name="limit">Limit</string>
+    <string name="name">Názov</string>
+    <string name="category">Kategória</string>
+    <string name="account">Konto</string>
+    <string name="note">Poznámka</string>
+    <string name="date">Dátum</string>
+    <string name="save">Uložiť</string>
+    <string name="cancel">Zrušiť</string>
+    <string name="receipt">Bloček</string>
+    <string name="capture">Odfotiť</string>
+    <string name="view">Pozrieť</string>
+    <string name="update">Upraviť</string>
+    <string name="clean">Vyčistiť</string>
+    <string name="ok">OK</string>
+    <string name="share">Zdielať</string>
+
+    <string name="grocery">Potraviny</string>
+    <string name="zero">0</string>
+    <string name="fraction">%1$d/%2$d</string>
+
+    <string name="account_name_missing">Názov konta je prázdny</string>
+    <string name="account_type_missing">Typ konta je prázdny</string>
+    <string name="account_missing">Nebolo označené žiadne konto</string>
+
+    <string name="category_name_missing">Názov kategórie je prázdny</string>
+    <string name="category_limit_missing">Limit je prázdny</string>
+    <string name="category_missing">Nebola označená žiadna kategória</string>
+
+    <string name="transaction_name_missing">Názov transakcie je prázdny</string>
+    <string name="transaction_value_missing">Hodnota transakcie je prázdna</string>
+    <string name="transaction_value_invalid">Nepodporovaná hodnota transakcie</string>
+    <string name="transaction_date_invalid">Nepodporovaná dátumu</string>
+
+    <string name="edit">Upraviť</string>
+    <string name="delete">Zmazať</string>
+
+    <string name="date_range_format">%1$s ~ %2$s</string>
+
+    <string name="no_accounts">Nemáte zatiaľ žiadne kontá. Kliknite na tlačidlo "+" (plus) pre vytvorenie nového konta.</string>
+    <string name="no_categories">Nemáte zatiaľ žiadne kategórie. Kliknite na tlačidlo "+" (plus) pre vytvorenie novej kategórie.</string>
+    <string name="no_expenses">Nemáte zatiaľ žiadne výdavky. Kliknite na tlačidlo "+" (plus) pre vytvorenie nového výdavku.</string>
+    <string name="no_expenses_for_category">Nemáte žiadne výdavky pre kategóriu \"%1$s\"</string>
+    <string name="no_revenues">Nemáte zatiaľ žiadne príjmy. Kliknite na tlačidlo "+" (plus) pre vytvorenie nového príjmu</string>
+    <string name="no_revenues_for_category">Nemáte žiadne príjmy pre kategóriu \"%1$s\"</string>
+
+    <string name="start_date">Dátum od</string>
+    <string name="end_date">Dátum do</string>
+    <string name="start_date_after_end_date">Počiatočný dátum musí byť pred ukončovacím</string>
+
+    <string name="cleanup_help">Všetky bločky po tento dátum budú odstránené</string>
+
+    <string name="importedFrom">Import dokončený. Zdroj: %1$s</string>
+    <string name="exportedTo">Export dokončený. Súbor: %1$s</string>
+    <string name="fileMissing">Súbor neexistuje: %1$s</string>
+    <string name="importFailed">Import zlyhal. Dôvod: %1$s</string>
+    <string name="exportFailed">Export zlyhal. Dôvod: %1$s</string>
+    <string name="importing">Prebieha import&#8230;</string>
+    <string name="exporting">Prebieha export&#8230;</string>
+
+    <string name="purgeOldReceipts">Odstrániť staré bločky</string>
+    <string name="cleaning">Prebieha čistenie&#8230;</string>
+
+    <string name="receipt_capture_error">Nepodarilo sa odfotiť bloček</string>
+    <string name="no_camera_permission_error">Bez prístupu ku kamere aplikácia nevie odfotiť bloček</string>
+
+    <string name="iconDescription">Cashbox ikona</string>
+    <string name="navigation_drawer_open">Otvoriť navigačný panel</string>
+    <string name="navigation_drawer_close">Zavrieť navigačný panel</string>
+
+    <string name="search">Vyhľadávanie</string>
+    <string name="color">Farba</string>
+    <string name="currency">Mena</string>
+    <string name="opening_balance">Počiatočný stav</string>
+    <string name="cash">hotovosť</string>
+    <string name="credit_card">kreditná karta</string>
+    <string name="bank_account">bankový účet</string>
+    <string name="eur">EUR</string>
+    <string name="usd">USD</string>
+    <string name="cad">CAD</string>
+    <string name="gbp">GBP</string>
+    <string name="chf">CHF</string>
+    <string name="czk">CZK</string>
+    <string name="pln">PLN</string>
+    <string name="huf">HUF</string>
+    <string name="currency_unknown">Neznáma mena</string>
+    <string name="about_body">
+        Verzia: 1.0.1\n\n
+        Licencia: GPLv3\n\n
+        Zdrojový kód: <a href="https://github.com/ethael/cashbox\nAuthor: Marian Mizik\nUsed sources: ">GitHub</a>\n\n
+        Knižnice: <a href='https://commons.apache.org/proper/commons-csv/' style='color:#EAEAEA;'>Commons CSV</a>, <a href='https://github.com/brarcher/budget-watch' style='color:#EAEAEA;'>Budget Watch</a>, <a href='https://icomoon.io/#icons-icomoon' style='color:#EAEAEA;'>Icomoon</a>
+    </string>
+    <string name="unknown_action">Neznáma akcia: </string>
+    <string name="unknown_mode">Neznámy kód: </string>
+    <string name="drawer_contact">github.com/ethael/cashbox</string>
+    <string name="about">O aplikácii</string>
+    <string name="delete_confirmation_account">Chcete naozaj zmazať toto konto?</string>
+    <string name="delete_confirmation_category">Chcete naozaj zmazať túto kategóriu?</string>
+    <string name="delete_confirmation_transaction">Chcete naozaj zmazať túto transakciu?</string>
+    <string name="delete_success_account">Konto bolo úspešne zmazané.</string>
+    <string name="delete_success_category">Kategória bola úspešne zmazaná.</string>
+    <string name="delete_success_transaction">Transakcia bola úspešne zmazaná.</string>
+    <string name="save_success_account">Konto bolo úspešne uložené.</string>
+    <string name="save_success_category">Kategória bola úspešne uložená.</string>
+    <string name="save_success_transaction">Transakcia bola úspešne uložená.</string>
+    <string name="account_type_unknown">Neznámy typ konta</string>
+    <string name="max_value">Max </string>
+    <string name="dashboard">Štatistiky</string>
+    <string name="wrong_password">Nesprávne heslo. Skúste znova.</string>
+    <string name="password">Heslo</string>
+    <string name="light_theme">Svetlá téma</string>
+    <string name="settings_saved">Nastavenia boli úspešne uložené</string>
+    <string name="value">Hodnota</string>
+    <string name="enter_password">Zadajte heslo</string>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <item name="ic_drawer_expenses" type="drawable">@drawable/ic_drawer_expenses</item>
+    <item name="ic_drawer_revenues" type="drawable">@drawable/ic_drawer_revenues</item>
+    <item name="ic_drawer_categories" type="drawable">@drawable/ic_drawer_categories</item>
+    <item name="ic_drawer_accounts" type="drawable">@drawable/ic_drawer_accounts</item>
+    <item name="ic_drawer_settings" type="drawable">@drawable/ic_drawer_settings</item>
+    <item name="ic_drawer_import" type="drawable">@drawable/ic_drawer_import</item>
+    <item name="ic_drawer_export" type="drawable">@drawable/ic_drawer_export</item>
+</resources>
