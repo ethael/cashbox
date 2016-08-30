@@ -139,4 +139,5 @@
     <string name="settings_saved">Settings successfully saved</string>
     <string name="value">Wert</string>
     <string name="enter_password">Passwort eingeben</string>
+    <string name="encryption">Verschlüsselung</string>
 </resources>

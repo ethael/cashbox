@@ -7,9 +7,11 @@ import android.support.v4.content.IntentCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import protect.cashbox.util.Constants;
@@ -17,7 +19,8 @@ import protect.cashbox.util.ProgressTask;
 
 public class SettingsActivity extends CashboxActivity {
 
-    private CheckBox themeField;
+    private Switch themeField;
+    private Switch encryptionField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,16 @@ public class SettingsActivity extends CashboxActivity {
         }
 
         //INIT LAYOUT REFERENCES
-        themeField = (CheckBox) findViewById(R.id.settings_theme);
+        themeField = (Switch) findViewById(R.id.settings_theme);
+        encryptionField = (Switch) findViewById(R.id.settings_encryption);
+
+        //INIT ENCRYPTION LOGIC
+        encryptionField.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                Log.e(Constants.TAG, "Changed to: " + b);
+            }
+        });
     }
 
     @Override
@@ -43,8 +55,12 @@ public class SettingsActivity extends CashboxActivity {
         super.onResume();
 
         //PRESET VIEW BASED ON SHARED PREFERENCES
-        if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.SETTINGS_LIGHT_THEME, false)) {
+        SharedPreferences config = PreferenceManager.getDefaultSharedPreferences(this);
+        if (config.getBoolean(Constants.SETTINGS_LIGHT_THEME, false)) {
             themeField.setChecked(true);
+        }
+        if (config.getBoolean(Constants.SETTINGS_ENCRYPTION, false)) {
+            encryptionField.setChecked(true);
         }
     }
 
@@ -75,7 +91,7 @@ public class SettingsActivity extends CashboxActivity {
     }
 
     @Override
-    protected ProgressTask asyncDbTask() {
+    protected ProgressTask asyncTask() {
         //NO NEED FOR ASYNC LOAD
         return null;
     }

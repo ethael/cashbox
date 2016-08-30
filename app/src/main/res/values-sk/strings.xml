@@ -139,4 +139,5 @@
     <string name="settings_saved">Nastavenia boli úspešne uložené</string>
     <string name="value">Hodnota</string>
     <string name="enter_password">Zadajte heslo</string>
+    <string name="encryption">Šifrovanie</string>
 </resources>

@@ -114,7 +114,7 @@ public class AccountListActivity extends CashboxActivity {
     }
 
     @Override
-    protected ProgressTask asyncDbTask() {
+    protected ProgressTask asyncTask() {
         return new LoadAccountsTask(this);
     }
 

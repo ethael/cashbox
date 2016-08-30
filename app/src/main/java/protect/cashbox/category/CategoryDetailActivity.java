@@ -80,7 +80,7 @@ public class CategoryDetailActivity extends CashboxActivity {
     }
 
     @Override
-    protected ProgressTask asyncDbTask() {
+    protected ProgressTask asyncTask() {
         //LOAD DATA IF NOT IN ADD MODE
         return MODE == Mode.ADD ? null : new ProgressTask(this) {
             @Override

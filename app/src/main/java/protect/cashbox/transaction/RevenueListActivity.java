@@ -97,7 +97,7 @@ public class RevenueListActivity extends CashboxActivity {
     }
 
     @Override
-    protected ProgressTask asyncDbTask() {
+    protected ProgressTask asyncTask() {
         return new LoadRevenuesTask(this);
     }
 

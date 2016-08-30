@@ -97,7 +97,7 @@ public class ExpenseListActivity extends CashboxActivity {
     }
 
     @Override
-    protected ProgressTask asyncDbTask() {
+    protected ProgressTask asyncTask() {
         return new LoadExpensesTask(this);
     }
 

@@ -92,7 +92,7 @@ public class CategoryListActivity extends CashboxActivity {
     }
 
     @Override
-    protected ProgressTask asyncDbTask() {
+    protected ProgressTask asyncTask() {
         return new LoadCategoriesTask(this);
     }
 
@@ -100,10 +100,12 @@ public class CategoryListActivity extends CashboxActivity {
         public LoadCategoriesTask(Activity activity) {
             super(activity);
         }
+
         @Override
         protected Object process() {
             return DatabaseManager.getInstance(CategoryListActivity.this).getCategories();
         }
+
         @Override
         protected void callback(Object result) {
             final List<Category> categories = (List<Category>) result;

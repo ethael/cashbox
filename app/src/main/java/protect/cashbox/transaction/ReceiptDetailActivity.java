@@ -49,7 +49,7 @@ public class ReceiptDetailActivity extends CashboxActivity {
     }
 
     @Override
-    protected ProgressTask asyncDbTask() {
+    protected ProgressTask asyncTask() {
         //NO NEED FOR ASYNC LOAD
         return null;
     }

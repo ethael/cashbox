@@ -72,8 +72,33 @@
                 android:textSize="16.0sp"
                 android:textStyle="bold"/>
 
-            <CheckBox
+            <Switch
                 android:id="@+id/settings_theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:checked="false"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10.0dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:paddingEnd="20.0dip"
+                android:paddingStart="20.0dip"
+                android:text="@string/encryption"
+                android:textSize="16.0sp"
+                android:textStyle="bold"/>
+
+            <Switch
+                android:id="@+id/settings_encryption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

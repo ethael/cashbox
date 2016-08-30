@@ -1,6 +1,7 @@
 package protect.cashbox;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,10 +12,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.view.GestureDetector;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -45,6 +47,7 @@ public class MainActivity extends CashboxActivity implements NavigationView.OnNa
     private long monthStart;
     private long monthEnd;
     private TextView dateRange;
+    private TextView summary;
     private DateFormat formatter;
     private Calendar calendar;
 
@@ -85,11 +88,13 @@ public class MainActivity extends CashboxActivity implements NavigationView.OnNa
         //INIT FILTERING DATE INTERVAL
         calendar = Calendar.getInstance();
         dateRange = (TextView) findViewById(R.id.dateRange);
+        summary = (TextView) findViewById(R.id.summary);
         formatter = new SimpleDateFormat("MMM yyyy", Locale.getDefault());
         monthStart = Util.getMonthStart(calendar);
         monthEnd = Util.getMonthEnd(calendar);
         dateRange.setText(formatter.format(calendar.getTime()));
 
+        //INIT CATEGORY LIST
         categoryListAdapter = new DashboardCategoryStatsAdapter(this, Collections.<Category>emptyList());
         categoryListNoData = (TextView) findViewById(R.id.category_list_no_data);
         categoryList = (ListView) findViewById(R.id.category_list);
@@ -109,35 +114,31 @@ public class MainActivity extends CashboxActivity implements NavigationView.OnNa
         });
         registerForContextMenu(categoryList);
 
-        //INIT DATE BACK & FORWARD BUTTON LISTENERS
-        Button backButton = (Button) findViewById(R.id.back);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calendar.add(Calendar.MONTH, -1);
-                monthStart = Util.getMonthStart(calendar);
-                monthEnd = Util.getMonthEnd(calendar);
-
-                new LoadCategoriesTask(MainActivity.this).execute();
-                dateRange.setText(formatter.format(calendar.getTime()));
+        //INIT LEFT/RIGHT SWIPE LISTENER (FOR CHANGING MONTHS)
+        categoryList.setOnTouchListener(new OnSwipeListener(MainActivity.this) {
+            public void onSwipeRight() {
+                resetMonth(-1);
             }
-        });
-        Button forwardButton = (Button) findViewById(R.id.forward);
-        forwardButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calendar.add(Calendar.MONTH, 1);
-                monthStart = Util.getMonthStart(calendar);
-                monthEnd = Util.getMonthEnd(calendar);
 
-                new LoadCategoriesTask(MainActivity.this).execute();
-                dateRange.setText(formatter.format(calendar.getTime()));
+            public void onSwipeLeft() {
+                resetMonth(1);
             }
         });
     }
 
+    private void resetMonth(Integer jump) {
+        if (jump != null && jump != 0) {
+            calendar.add(Calendar.MONTH, jump);
+        }
+        monthStart = Util.getMonthStart(calendar);
+        monthEnd = Util.getMonthEnd(calendar);
+
+        new LoadCategoriesTask(MainActivity.this).execute();
+        dateRange.setText(formatter.format(calendar.getTime()));
+    }
+
     @Override
-    protected ProgressTask asyncDbTask() {
+    protected ProgressTask asyncTask() {
         return new LoadCategoriesTask(this);
     }
 
@@ -164,6 +165,15 @@ public class MainActivity extends CashboxActivity implements NavigationView.OnNa
                 categoryListNoData.setVisibility(View.GONE);
             }
             categoryListAdapter.reset(categories);
+
+            //SET SUMMARY FIELD
+            int spent = 0;
+            int budget = 0;
+            for (Category c : categories) {
+                spent += c.getCurrent();
+                budget += c.getMax();
+            }
+            summary.setText(spent + " / " + budget);
         }
     }
 
@@ -222,5 +232,56 @@ public class MainActivity extends CashboxActivity implements NavigationView.OnNa
             impexTask.cancel(true);
         }
         super.onDestroy();
+    }
+
+    class OnSwipeListener implements View.OnTouchListener {
+        private final GestureDetector gestureDetector;
+
+        public OnSwipeListener(Context ctx) {
+            gestureDetector = new GestureDetector(ctx, new GestureListener());
+        }
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            return gestureDetector.onTouchEvent(event);
+        }
+
+        private final class GestureListener extends GestureDetector.SimpleOnGestureListener {
+            private static final int SWIPE_THRESHOLD = 100;
+            private static final int SWIPE_VELOCITY_THRESHOLD = 100;
+
+            @Override
+            public boolean onDown(MotionEvent e) {
+                return true;
+            }
+
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                boolean result = false;
+                try {
+                    float diffY = e2.getY() - e1.getY();
+                    float diffX = e2.getX() - e1.getX();
+                    if (Math.abs(diffX) > Math.abs(diffY)) {
+                        if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
+                            if (diffX > 0) {
+                                onSwipeRight();
+                            } else {
+                                onSwipeLeft();
+                            }
+                        }
+                    }
+                    result = true;
+                } catch (Exception exception) {
+                    exception.printStackTrace(); //FIXME nice login
+                }
+                return result;
+            }
+        }
+
+        public void onSwipeRight() {
+        }
+
+        public void onSwipeLeft() {
+        }
     }
 }

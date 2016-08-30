@@ -32,6 +32,7 @@ public class Constants {
     public static final java.lang.String EXTRAS_RECEIPT_FILE_NAME = "receipt";
 
     public static final String SETTINGS_LIGHT_THEME = "settings_light_theme";
+    public static final String SETTINGS_ENCRYPTION = "settings_encryption";
 
     public static final List<String> CURRENCY_SYMBOLS = new ArrayList<String>() {
         {

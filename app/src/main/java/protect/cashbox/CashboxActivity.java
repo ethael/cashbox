@@ -37,7 +37,7 @@ public abstract class CashboxActivity extends AppCompatActivity {
             DatabaseManager.getInstance(this).lock();
             showPasswordDialog();
         } else {
-            ProgressTask task = asyncDbTask();
+            ProgressTask task = asyncTask();
             if (task != null) {
                 task.execute();
             }
@@ -52,7 +52,7 @@ public abstract class CashboxActivity extends AppCompatActivity {
         ((CashboxApplication) this.getApplication()).startActivityTransitionTimer();
     }
 
-    protected abstract ProgressTask asyncDbTask();
+    protected abstract ProgressTask asyncTask();
 
     protected void showPasswordDialog() {
         //SET CORRECT THEME BASED ON SAVED PREFERENCES
@@ -75,7 +75,7 @@ public abstract class CashboxActivity extends AppCompatActivity {
                 if (db.unlock(passwordField.getText().toString())) {
                     dialog.dismiss();
                     //LOAD DATA ASYNCHRONOUSLY IF NEEDED
-                    ProgressTask task = asyncDbTask();
+                    ProgressTask task = asyncTask();
                     if (task != null) {
                         task.execute();
                     }
